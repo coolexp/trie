@@ -3,9 +3,9 @@
 
 #define TRIE_SIZE 128
 
-typedef union _trie_t {
-    union _trie_t *sentinel;
-    union _trie_t *chars[TRIE_SIZE];
+typedef union trie_t {
+    union trie_t *sentinel;
+    union trie_t *chars[TRIE_SIZE];
 } trie_t;
 
 trie_t *trie_init(void);
