@@ -41,6 +41,7 @@ int main(int argc, char **argv) {
     printf("Completed 1 million iterations of the stop word example in %.0f ms\n", (double) elapsed);
 
     //Cleanup
+    free(dest);
     trie_free(t);
     trie_free(stopwords);
 
