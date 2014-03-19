@@ -1,7 +1,7 @@
 #ifndef _TRIE_H_
 #define _TRIE_H_
 
-#define TRIE_SIZE 128
+enum { TRIE_SIZE = 128 };
 #define TRIE_SENTINEL 0
 
 typedef struct _trie_t {
