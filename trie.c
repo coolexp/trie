@@ -56,6 +56,7 @@ int trie_load(trie_t *t, char *file) {
             t = t->chars[c];
         }
     }
+    fclose(stream);
     if (t != root && word_len > 0) {
         t->chars[TRIE_SENTINEL] = trie_init();
     }
