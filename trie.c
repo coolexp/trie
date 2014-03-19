@@ -5,7 +5,7 @@
 #include "trie.h"
 
 inline trie_t *trie_init(void) {
-    return (trie_t *) malloc(sizeof(trie_t));
+    return calloc(1, sizeof(trie_t));
 }
 
 void trie_add(trie_t *t, char *word) {
