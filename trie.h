@@ -2,10 +2,10 @@
 #define _TRIE_H_
 
 #define TRIE_SIZE 128
-#define TRIE_SENTINEL 0
 
-typedef struct _trie_t {
-    struct _trie_t *chars[TRIE_SIZE];
+typedef union _trie_t {
+    union _trie_t *sentinel;
+    union _trie_t *chars[TRIE_SIZE];
 } trie_t;
 
 trie_t *trie_init(void);
@@ -16,6 +16,6 @@ void trie_strip(trie_t *, char *, char *);
 void trie_free(trie_t *);
 
 #define trie_step(t,c) (t = (t == NULL || t->chars[c] == NULL ? NULL : t->chars[c]))
-#define trie_word(t) (t != NULL && t->chars[TRIE_SENTINEL] != NULL)
+#define trie_word(t) (t != NULL && t->sentinel != NULL)
 
 #endif

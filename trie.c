@@ -17,7 +17,7 @@ void trie_add(trie_t *t, char *word) {
         }
         t = t->chars[c];
     }
-    t->chars[TRIE_SENTINEL] = trie_init();
+    t->sentinel = trie_init();
 }
 
 int trie_exists(trie_t *t, char *word) {
@@ -28,7 +28,7 @@ int trie_exists(trie_t *t, char *word) {
         }
         t = t->chars[c];
     }
-    return t->chars[TRIE_SENTINEL] != NULL ? 1 : 0;
+    return t->sentinel != NULL ? 1 : 0;
 }
 
 int trie_load(trie_t *t, char *file) {
@@ -42,7 +42,7 @@ int trie_load(trie_t *t, char *file) {
     while ((c = getc(stream)) != EOF) {
         if (c == '\n' || c == '\r') {
             if (word_len > 0) {
-                t->chars[TRIE_SENTINEL] = trie_init();
+                t->sentinel = trie_init();
                 words++;
                 word_len = 0;
                 t = root;
@@ -57,7 +57,7 @@ int trie_load(trie_t *t, char *file) {
         }
     }
     if (t != root && word_len > 0) {
-        t->chars[TRIE_SENTINEL] = trie_init();
+        t->sentinel = trie_init();
     }
     return words;
 }
