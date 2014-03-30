@@ -1,7 +1,7 @@
 #ifndef _TRIE_H_
 #define _TRIE_H_
 
-enum { TRIE_SIZE = 128 };
+static const int TRIE_SIZE = 128;
 
 typedef union trie_t {
     void *sentinel;
