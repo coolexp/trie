@@ -1,11 +1,12 @@
 #ifndef _TRIE_H_
 #define _TRIE_H_
 
-static const int TRIE_SIZE = 128;
+#define TREE_SIZE_DEF 128
+static const int TRIE_SIZE = TREE_SIZE_DEF;
 
 typedef union trie_t {
     void *sentinel;
-    union trie_t *chars[TRIE_SIZE];
+    union trie_t *chars[TREE_SIZE_DEF];
 } trie_t;
 
 trie_t *trie_init(void);
